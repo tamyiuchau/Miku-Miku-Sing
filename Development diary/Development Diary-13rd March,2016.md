@@ -1,0 +1,19 @@
+﻿# Development Diary  13rd March,2016
+It was working quite fluently past few days on Miku Miku Sing, until I hit the wall. So i am going to fill up the diary now.
+## Decisions
+This is a prototype for a synthetic machine that makes making music easier, by humming to the microphone as an input. This idea sparkle when I was trying to do some remix on speeches (aka 鬼畜 in chinese), the UTAU is a popular tool. However, it requires midi keyboard or drawing notes one by one using mouse. The midi keyboard is out of my reach, as I am a secondary student without much disposable income, and drawing notes by mouse is just far too time consuming. This is the problem I realised when trying to do my first video which is about 2 minute, which takes me about 1-2 hour (and I figure out later it is actually quite fast when compaired to others).
+### Quick, Fast and Dirty
+At the time of writing this programme, I am prepairing for my HKDSE, so I do not have much time to spend actually. I hope to finish that before HKDSE, so I will not reinveting the wheels and use exsisting libaries, praat (in fact it is a speech analysis tool which is used as sound preprocessor which ends up at not totally fit my need latter) and mido (which backend rtmidi and portmidi does not work well on Python3 x64, and took me plentiful of time to resolve, until I surrender and use x86 instead). Rewriting (or customiszing) these library is planed but not now. This is also the reason I use Python, which is the fastest prototyping tool with plentiful of library which I know (but still not satisfied with the performace: maybe rewriting in other language is a good idea? I don't know. But I clearly know that languages are not solution to everything), so I will stick on Python before releasing Beta version.
+### Research before work
+I am doing quite an extensive research before I decide to invest time on it. Actually I would not start if I do not have all algorithms and libraries ready before use. This process really saves me from hitting the wall
+### Problem on pitch recongnition
+The pitch recgnition is a complicated part. The pitch generated fluctuates and detecting the changing edge is hard (especially with scales), no matter how hard I tried to keep my voice calm. Perhaps it may be the problem of my singing skills but I suspect that this problem will also occurs to others. Also, vibrato is very important for gennerating a natural human singing sound IMO, and once if I decided not to support vibrato, it will be very hard to add it back latter. Vibrato makes it complicated It may be a good situation for machine learning algorithms, like artificial neural network, to kick in, but 1) it is hard, not feasible in a short time and 2)I haven't learned about that and I don't know how. I would like to investigate more about that once I entered university.
+#### TODO
+- leave an API for others to write plugins to choose the pitch and accomodate to different situations (I really need help on this because I am not sure if I can learn machine learning in a couple of months and come up with brilliant idea that solve the problem in one go)
+- Quick and dirty method : write a GUI, let user to decide # the choosen method
+
+### Aubio: no documentation on python no good use
+Aubio is recommended on stackoverflow, blogs etc, but no documentation for Python, so I need to dive into the source code. I also suspect the author may not be able to give enough support when bugs pop up. It is also not in active development. ( I have really bad experiece with dated library before)
+
+### rtmidi
+I have spent arround 2 hours (not more than 8 hr total for development til now) trying to make output to midi port possible, untill I found on rtmidi github they do not support windows now. WHAT. Resolved through switching to using old Python 2 x86 with old compiled pyd found somewhere in github, but I still feel unconfortable with that.
