@@ -1,4 +1,5 @@
 # Miku-Miku-Sing
+Followed the naming convention of Miku Miku Dance
 #Features
 A complete development diary, produces a midi file that one note is split up into multiple notes (due to the nature of batch processing)
 which can be fixed by human intervention.
